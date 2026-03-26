@@ -2,6 +2,8 @@
 import { faHouse, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 */
 
+import HeadSect from "./HeadSect.jsx"
+
 export default function App(){
-  return <>todo</>
+  return <><HeadSect/></>
 }
