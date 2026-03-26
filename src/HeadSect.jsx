@@ -1,7 +1,20 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCaretDown,faNairaSign,faCircleUser} from '@fortawesome/free-solid-svg-icons'
+import { faCaretDown,faNairaSign,faCircleUser,faPhone} from '@fortawesome/free-solid-svg-icons'
+import { useState } from 'react'
+
+const ContactDropDown = ({show})=>{
+    const display = show ? "flex" : "hidden"
+    return <div className= {`absolute top-18 z-2 right-75 ${display} flex-col items-center h-50 border bg-white text-black`} >
+        <a className= "hover:bg-gray-200 py-2 " href='https://api.whatsapp.com/send?phone=2348144084721&text=I%27m%20interested%20in%20booking%20a%20hotel'><button className='flex flex-row'><img className='h-6'src="/assets/whatsapp-icon.png"/>+234 814 408 4721</button></a>
+        <a className= "hover:bg-gray-200 py-2 " href='tel:+2348089530980'><button><FontAwesomeIcon icon={faPhone} className='text-indigo-700'/>+234 814 880 8800</button></a>
+        <a className= "hover:bg-gray-200 py-2 " href='tel:+2348089530980'><button><FontAwesomeIcon icon={faPhone} className='text-indigo-700'/>+234 808 953 0980</button></a>
+        <a className= "hover:bg-gray-200 py-2 " href='tel:+2348089530980'><button><FontAwesomeIcon icon={faPhone} className='text-indigo-700'/>+234 813 697 1836</button></a>
+        <a className= "hover:bg-gray-200 pt-2 " href='tel:+2349161180666'><button className='flex flex-row items-center'><img className='h-7' src="/assets/social-media-logo-design.png"/>+234 916 118 0666</button></a>
+    </div>
+}
 
 const Header = () => {
+    const [dropdownCall,setdropdownCall] = useState(false)
     return <div className="bg-sky-400 flex flex-row w-screen text-white">
         <div className="flex-1 flex flex-row border-r-2 border-white items-center pl-10 pr-4 py-4">
             <a href="https://hotels.ng/"><img src="/assets/logo.png" alt="Hotel.ng Logo" className="h-10"></img></a>
@@ -9,7 +22,7 @@ const Header = () => {
         </div>
         <div className="flex flex-row px-3 py-4">
             <img src="/assets/navbar-contact-min.jpg" className='rounded-full z-1 absolute top-3 right-123'></img>
-            <button className='rounded-4xl bg-indigo-900 pr-4 pl-10 relative'>
+            <button onClick={() => setdropdownCall(!dropdownCall)} className='rounded-4xl bg-indigo-900 pr-4 pl-10 relative'>
                 <div className='text-sm text-sky-400'>You can call us to book your hotel</div>
                 <div className='text-sm'>+234 814 880 8800 <FontAwesomeIcon icon={faCaretDown}/></div>
             </button>
@@ -26,6 +39,7 @@ const Header = () => {
             <p>Account</p>
             <FontAwesomeIcon icon={faCaretDown}/>
         </div>
+        <ContactDropDown show ={dropdownCall}/>
     </div>
 }
 
@@ -38,7 +52,9 @@ const Search = () => {
 }
 
 const HeadSect = () => {
- return <Header/>
+ return<div>
+    <Header/>
+ </div> 
 }
 
 export default HeadSect;
