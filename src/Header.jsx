@@ -45,10 +45,7 @@ const AccountDropDown = ({show})=>{
     </div>
 }
 
-const Header = () => {
-    const [dropdownCall,setdropdownCall] = useState(false)
-    const [dropdownCurrency,setdropdownCurrency] = useState(false);
-    const [dropdownAccount, setdropdownAccount] = useState(false)
+const Header = ({dropdownCurrency, setdropdownCurrency, dropdownCall, setdropdownCall, dropdownAccount, setdropdownAccount}) => {
     const [currentCurrency,setcurrentCurrency] = useState(1);
     return <div className="bg-sky-400 flex items-center flex-row w-screen text-white">
         <div className="flex-1 flex flex-row border-r-2 border-white items-center pl-10 pr-4 py-4">

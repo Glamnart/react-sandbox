@@ -8,9 +8,9 @@ const Search = () => {
 
 }
 
-const HeadSect = () => {
+const HeadSect = ({dropdownCurrency, setdropdownCurrency, dropdownCall, setdropdownCall, dropdownAccount, setdropdownAccount}) => {
  return<div>
-    <Header/>
+    <Header dropdownCall={dropdownCall} setdropdownCall={setdropdownCall} dropdownCurrency={dropdownCurrency} setdropdownCurrency={setdropdownCurrency} dropdownAccount={dropdownAccount} setdropdownAccount={setdropdownAccount}/>
  </div> 
 }
 
