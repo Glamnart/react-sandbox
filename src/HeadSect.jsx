@@ -2,6 +2,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCaretDown,faNairaSign,faCircleUser,faPhone,faEuroSign,faDollarSign,faPoundSign,faIndianRupeeSign,faWonSign,faYenSign} from '@fortawesome/free-solid-svg-icons'
 import { useState } from 'react'
 
+const Currencies = [
+    <><img src='/assets/nigeria-flag.svg' className='h-8'></img><FontAwesomeIcon icon={faNairaSign}/></>,
+    <><img src='/assets/euro.png' className='h-8'></img><FontAwesomeIcon icon={faEuroSign}/></>,
+    <><img src='/assets/dollar.png' className='h-10'></img><FontAwesomeIcon icon={faDollarSign}/></>,
+    <><img src='/assets/pounds.png' className='h-8'></img><FontAwesomeIcon icon={faPoundSign}/></>,
+    <><img src='/assets/rupee.png' className='h-10'></img><FontAwesomeIcon icon={faIndianRupeeSign}/></>,
+    <><img src='/assets/dollar.png' className='h-10'></img><FontAwesomeIcon icon={faWonSign}/></>,
+    <><img src='/assets/dollar.png' className='h-10'></img><FontAwesomeIcon icon={faYenSign}/></>
+]
+
 const ContactDropDown = ({show})=>{
     const display = show ? "flex" : "hidden"
     return <div className= {`absolute top-18 z-2 right-76 ${display} flex-col items-center h-50 border bg-white text-black rounded-md`} >
@@ -13,16 +23,16 @@ const ContactDropDown = ({show})=>{
     </div>
 }
 
-const CurrencyDropDown = ({show})=>{
+const CurrencyDropDown = ({show,currentCurrency,setcurrentCurrency})=>{
     const display = show ? "flex" : "hidden"
     return <div className= {`absolute top-18 z-2 right-34 ${display} flex-col items-start h-50 border bg-white text-black rounded-md justify-between`} >
-        <button className= "hover:bg-gray-200 pr-1"><FontAwesomeIcon icon={faNairaSign}/>Nigerian Naira</button>
-        <button className= "hover:bg-gray-200"><FontAwesomeIcon icon={faEuroSign}/>European Euro</button>
-        <button className= "hover:bg-gray-200 pr-8"><FontAwesomeIcon icon={faDollarSign}/>U.S. Dollar </button>
-        <button className= "hover:bg-gray-200 pr-3"><FontAwesomeIcon icon={faPoundSign}/>British Pound</button>
-        <button className= "hover:bg-gray-200 pr-3"><FontAwesomeIcon icon={faIndianRupeeSign}/>Indian Rupee</button>
-        <button className= "hover:bg-gray-200 pr-5"><FontAwesomeIcon icon={faWonSign}/>Korean Won</button>
-        <button className= "hover:bg-gray-200 pr-5"><FontAwesomeIcon icon={faYenSign}/>Chinese Yen</button>
+        <button onClick={()=>{setcurrentCurrency(1)}} className= {`hover:bg-gray-200 pr-1 ${currentCurrency === 1 && "bg-sky-400 text-white"}`}><FontAwesomeIcon icon={faNairaSign}/>Nigerian Naira</button>
+        <button onClick={()=>{setcurrentCurrency(2)}} className= {`hover:bg-gray-200 ${currentCurrency === 2 && "bg-sky-400 text-white"}`}><FontAwesomeIcon icon={faEuroSign}/>European Euro</button>
+        <button onClick={()=>{setcurrentCurrency(3)}}className= {`hover:bg-gray-200 pr-8 ${currentCurrency === 3 && "bg-sky-400 text-white"}`}><FontAwesomeIcon icon={faDollarSign}/>U.S. Dollar </button>
+        <button onClick={()=>{setcurrentCurrency(4)}} className= {`hover:bg-gray-200 pr-3 ${currentCurrency === 4 && "bg-sky-400 text-white"}`}><FontAwesomeIcon icon={faPoundSign}/>British Pound</button>
+        <button onClick={()=>{setcurrentCurrency(5)}} className= {`hover:bg-gray-200 pr-3 ${currentCurrency === 5 && "bg-sky-400 text-white"}`}><FontAwesomeIcon icon={faIndianRupeeSign}/>Indian Rupee</button>
+        <button onClick={()=>{setcurrentCurrency(6)}} className= {`hover:bg-gray-200 pr-5 ${currentCurrency === 6 && "bg-sky-400 text-white"}`}><FontAwesomeIcon icon={faWonSign}/>Korean Won</button>
+        <button onClick={()=>{setcurrentCurrency(7)}} className= {`hover:bg-gray-200 pr-5 ${currentCurrency === 7 && "bg-sky-400 text-white"}`}><FontAwesomeIcon icon={faYenSign}/>Chinese Yen</button>
     </div>
 }
 
@@ -40,6 +50,7 @@ const CurrencyDropDown = ({show})=>{
 const Header = () => {
     const [dropdownCall,setdropdownCall] = useState(false)
     const [dropdownCurrency,setdropdownCurrency] = useState(false);
+    const [currentCurrency,setcurrentCurrency] = useState(1);
     return <div className="bg-sky-400 flex flex-row w-screen text-white">
         <div className="flex-1 flex flex-row border-r-2 border-white items-center pl-10 pr-4 py-4">
             <a href="https://hotels.ng/"><img src="/assets/logo.png" alt="Hotel.ng Logo" className="h-10"></img></a>
@@ -54,8 +65,7 @@ const Header = () => {
         </div>
         <div className='border-x-2 border-white pt-5 px-3 pb-3'>
             <button onClick={() => setdropdownCurrency(!dropdownCurrency)} className='flex flex-row items-center'>
-                <img src='/assets/nigeria-flag.svg' className='h-8'></img>
-                <FontAwesomeIcon icon={faNairaSign}/>
+                {Currencies[currentCurrency-1]}
                 <FontAwesomeIcon icon={faCaretDown}/>
             </button>
         </div>
@@ -65,7 +75,7 @@ const Header = () => {
             <FontAwesomeIcon icon={faCaretDown}/>
         </div>
         <ContactDropDown show ={dropdownCall}/>
-        <CurrencyDropDown show={dropdownCurrency}/>
+        <CurrencyDropDown show={dropdownCurrency} currentCurrency={currentCurrency} setcurrentCurrency={setcurrentCurrency}/>
     </div>
 }
 
