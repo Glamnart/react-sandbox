@@ -29,7 +29,7 @@ const Search = () => {
                 className="outline-0"
             />
         </div>
-        <button type="submit" className="bg-sky-400 text-white rounded-md px-10 py-2">Find Hotels</button>
+        <button type="submit" className="bg-sky-400 text-white rounded-md px-10 py-2 cursor-pointer hover:bg-sky-500">Find Hotels</button>
  </form>
 }
 

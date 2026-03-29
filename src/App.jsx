@@ -1,5 +1,6 @@
 import { useState } from "react"
 import HeadSect from "./HeadSect.jsx"
+import SuggestSect from "./SuggestSect.jsx";
 
 export default function App(){
   const [dropdownCall,setdropdownCall] = useState(false)
@@ -7,5 +8,6 @@ export default function App(){
   const [dropdownAccount, setdropdownAccount] = useState(false)
   return <div onClick={()=>{dropdownAccount? setdropdownAccount((dropdownAccount?false:true)):dropdownCall? setdropdownCall(dropdownCall?false:true): dropdownCurrency&& setdropdownCurrency(dropdownCurrency?false:true);}}>
       <HeadSect dropdownCall={dropdownCall} setdropdownCall={setdropdownCall} dropdownCurrency={dropdownCurrency} setdropdownCurrency={setdropdownCurrency} dropdownAccount={dropdownAccount} setdropdownAccount={setdropdownAccount}/>
+      <SuggestSect/>
     </div>
 }
