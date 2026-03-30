@@ -144,7 +144,7 @@ const Populars = ()=>{
 
 const City = ({city,numHotel,numReview})=>{
     return <div className="flex flex-col text-wrap w-40 items-start"  >
-        <p className="font-bold text-sky-400 ">{`Hotels in ${city}`}</p>
+        <a href={`https://hotels.ng/hotels-in-${city.toLowerCase()}`} className="font-bold text-sky-400 ">{`Hotels in ${city}`}</a>
         <div className="text-sm text-gray-700">{`${numHotel} hotels in ${city} with over ${numReview} hotel reviews`}</div>
     </div>
 }

@@ -1,0 +1,42 @@
+const Contact = ()=>{
+    return <div className="flex flex-col items-center bg-gray-100/40 h-60 justify-center">
+        <p className="font-bold text-3xl text-gray-700">Special Hotel Deals and Offers</p>
+        <p className="my-4 text-gray-700">Enter your email address to recieve secret hotels deals</p>
+        <form >
+            <input
+            className="border border-gray-300 rounded-sm pl-6 pr-60 py-2"
+            placeholder="Enter your email address"
+            type="email"
+            ></input>
+            <button  type="reset" className="bg-sky-400 text-white ml-4 px-6 py-2 rounded-md group" >Subscribe</button>
+        </form>
+    </div>
+}
+
+const Features = ()=>{
+    return<div className="flex flex-col items-center h-80 mt-15">
+        <p className="text-2xl font-bold text-gray-700">We've been featured in</p>
+        <div className={`bg-sky-400 pt-1 w-25 mt-3`}></div>
+        <div className="mt-15 flex flex-row justify-between w-6xl">
+            <a href="http://www.bbc.co.uk/news/business-24381684"><img src="/assets/bbc.png"></img></a>
+            <a href="http://www.forbes.com/sites/mfonobongnsehe/2015/02/05/30-most-promising-young-entrepreneurs-in-africa-2015/3/"><img src="/assets/forbes.png"></img></a>
+            <a href="https://www.newsweek.com/2014/05/30/money-move-251883.html"><img src="/assets/newsweek.png"></img></a>
+            <a href="https://itweb.africa/content/mQwkoq6Kxnlv3r9A"><img src="/assets/itweb.png"></img></a>
+        </div>
+    </div>
+}
+
+const Add = ()=>{}
+
+const Download = ()=>{}
+
+const Email = ()=>{}
+
+const InfoSect = ()=>{
+    return <div>
+        <Contact/>
+        <Features/>
+    </div>
+}
+
+export default InfoSect
