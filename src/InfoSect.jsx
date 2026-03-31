@@ -11,7 +11,7 @@ const Contact = ()=>{
             placeholder="Enter your email address"
             type="email"
             ></input>
-            <button  type="reset" className="bg-sky-400 text-white ml-4 px-6 py-2 rounded-md group" >Subscribe</button>
+            <button  type="reset" className="bg-sky-400 text-white ml-4 px-6 py-2 rounded-md group cursor-pointer hover:bg-sky-500" >Subscribe</button>
         </form>
     </div>
 }
@@ -33,7 +33,7 @@ const Add = ()=>{
     return<div className="flex flex-col items-center gap-8">
         <p className="text-3xl text-gray-700">Get More Bookings for Your Hotel</p>
         <p className="text-gray-600">Find out why over 13,137 hotels managers trust Hotels.ng</p>
-        <button className="bg-sky-400 text-white rounded-sm px-10 py-2">Add Your Hotel</button>
+        <a href='https://hotels.ng/hotel/add'><button className="bg-sky-400 text-white rounded-sm px-10 py-2 cursor-pointer hover:bg-sky-500">Add Your Hotel</button></a>
     </div>
 }
 
@@ -45,8 +45,8 @@ const Download = ()=>{
             <p className="text-gray-700 font-bold text-3xl w-100">Download the hotels.ng app and book a hotel instantly</p>
             <p className="text-gray-700 text-md w-90 my-4">Book your hotel instantly with our Android and iOS Apps.</p>
             <div className="flex flex-row justify-between">
-                <img src="/assets/google-play-min.png"/>
-                <img src="/assets/apple-store.png"/>
+                <a href="https://play.google.com/store/apps/details?id=ng.hotels.booking.app"><img src="/assets/google-play-min.png"/></a>
+                <a href='https://apps.apple.com/us/app/hotels-ng/id1561644946'><img src="/assets/apple-store.png"/></a>
             </div>
         </div>
     </div>
@@ -68,7 +68,7 @@ const Email = ()=>{
             type="email"
             >
             </input>
-            <button  type="reset" className="bg-sky-400 text-white px-6 py-2 rounded-r-sm" onClick={()=>{scrollTo(20,3000)}} >Unlock</button>
+            <button  type="reset" className="bg-sky-400 hover:bg-sky-500 cursor-pointer text-white px-6 py-2 rounded-r-sm" onClick={()=>{scrollTo(20,3000)}} >Unlock</button>
         </form>
     </div>
 }

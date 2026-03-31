@@ -2,6 +2,7 @@ import { useState } from "react"
 import HeadSect from "./HeadSect.jsx"
 import SuggestSect from "./SuggestSect.jsx";
 import InfoSect from "./InfoSect.jsx";
+import Footer from "./Footer.jsx";
 
 export default function App(){
   const [dropdownCall,setdropdownCall] = useState(false)
@@ -11,5 +12,6 @@ export default function App(){
       <HeadSect dropdownCall={dropdownCall} setdropdownCall={setdropdownCall} dropdownCurrency={dropdownCurrency} setdropdownCurrency={setdropdownCurrency} dropdownAccount={dropdownAccount} setdropdownAccount={setdropdownAccount}/>
       <SuggestSect/>
       <InfoSect/>
+      <Footer/>
     </div>
 }
